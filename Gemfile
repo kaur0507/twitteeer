@@ -60,5 +60,10 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'carrierwave', '~> 0.11.2'
+gem 'rmagick', '~> 4.2', '>= 4.2.2'
+gem 'mimemagic', '~> 0.3.0'
+gem 'paperclip', '~> 6.1'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

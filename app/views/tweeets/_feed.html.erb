@@ -3,7 +3,11 @@
     <article class="media box">
       <figure class="media-left">
         <p class="image is-64x64">
-          <%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
+          <% if current_user.avatar.attached? %>
+            <%= image_tag current_user.avatar %>
+          <% else %>
+            <%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
+          <% end %>
         </p>
       </figure>
       <div class="media-content">
@@ -17,7 +21,11 @@
       <article class="media">
         <div class="media-left">
           <p class="image is-64x64">
+            <% if tweeet.user.avatar.attached? %>
+            <%= image_tag tweeet.user.avatar %>
+          <% else %>
             <%= gravatar_image_tag(tweeet.user.email, size: 64, alt: tweeet.user.name) %>
+          <% end %>
           </p>
         </div>
         <div class="media-content">
@@ -25,6 +33,7 @@
             <p><strong><%= tweeet.user.name %></strong></p>
             <p><small>@<%= tweeet.user.username %></small></p>
             <p><%= tweeet.tweeet %></p>
+            <p><%= image_tag(tweeet.image) if tweeet.image.attached? %></p>
           </div>
 
           <% if user_signed_in? && current_user.username == tweeet.user.username %>

@@ -33,7 +33,7 @@
 }
 
 .notification.is-primary.global-notification{
-  animation: hideAnimation 0s ease-in 5s;
+  animation: hideAnimation 0s ease-in-out 3s;
   animation-fill-mode: forwards;
 }
 
@@ -41,6 +41,9 @@
   to {
     padding: 0 0 0 0;
     font-size: 0;
-    visibility: collapse;
   }
+}
+
+.profiler-button{
+  visibility: hidden;
 }
