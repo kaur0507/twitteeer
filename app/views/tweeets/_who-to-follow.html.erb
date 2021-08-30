@@ -5,26 +5,28 @@
   <% users = [] %>
   <% @tweeets.each { |tweeet| users.push(tweeet.user) } %>
     <% users.uniq.each do |u| %>
-    <div class="panel-block">
-      <article class="media">
-        <div class="media-left">
-          <figure class="image is-32x32">
-            <% if u.avatar.attached? %>
-              <%= image_tag u.avatar %>
-            <% else %>
-              <%= gravatar_image_tag(u.email, size: 64, alt: u.name) %>
-            <% end %>
-          </figure>
-        </div>
-        <div class="media-content">
-          <div class="content">
-            <p>
-              <strong><%= u.name %></strong>
-              <small>@<%= u.username %></small>
-            </p>
+    <% if u != current_user %>
+      <div class="panel-block">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image is-32x32">
+              <% if u.avatar.attached? %>
+                <%= image_tag u.avatar %>
+              <% else %>
+                <%= gravatar_image_tag(u.email, size: 64, alt: u.name) %>
+              <% end %>
+            </figure>
           </div>
-        </div>
-      </article>
-    </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong><%= u.name %></strong>
+                <small>@<%= u.username %></small>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <% end %>
   <% end %>
 </div>
