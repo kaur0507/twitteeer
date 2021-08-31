@@ -6,4 +6,7 @@ class User < ApplicationRecord
   
   has_many :tweeets
   has_one_attached :avatar
+  # belongs to or has many
+  belongs_to :followers
+  has_many :following
 end

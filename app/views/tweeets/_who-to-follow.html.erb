@@ -2,9 +2,7 @@
   <nav class="panel"> 
     <p class="panel-heading">Who to Follow</p>
   </nav>
-  <% users = [] %>
-  <% @tweeets.each { |tweeet| users.push(tweeet.user) } %>
-    <% users.uniq.each do |u| %>
+    <% @users.each do |u| %>
     <% if u != current_user %>
       <div class="panel-block">
         <article class="media">
