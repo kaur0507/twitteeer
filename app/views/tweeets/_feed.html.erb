@@ -14,6 +14,12 @@
         <%= render 'tweeets/form' %>
       </div>
     </article>
+  <% else %>
+    <article class="media box">
+      <div class="media-content">
+        <h1><strong>You need to be signed in to add Tweeets </strong></h1>
+      </div>
+    </article>
   <% end%>
 
   <% @tweeets.each do |tweeet| %>

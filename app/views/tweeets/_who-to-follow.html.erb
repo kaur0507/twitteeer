@@ -11,15 +11,15 @@
               <% if u.avatar.attached? %>
                 <%= image_tag u.avatar %>
               <% else %>
-                <%= gravatar_image_tag(u.email, size: 64, alt: u.name) %>
+                <%= link_to gravatar_image_tag(u.email, size: 64, alt: u.name) %>
               <% end %>
             </figure>
           </div>
           <div class="media-content">
             <div class="content">
               <p>
-                <strong><%= u.name %></strong>
-                <small>@<%= u.username %></small>
+                <strong style="text-decoration: none; color: black;"><%= link_to u.name, user_path(u.id) %></strong>
+                <small style="text-decoration: none;">@<%= link_to u.username, user_path(u.id) %></small>
               </p>
             </div>
           </div>

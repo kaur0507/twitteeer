@@ -6,7 +6,9 @@ class User < ApplicationRecord
   
   has_many :tweeets
   has_one_attached :avatar
-  # belongs to or has many
-  belongs_to :followers
-  has_many :following
+  # Will return an array of follows for the given user instance
+  has_many :received_follows, foreign_key: :followed_user_id, class_name: "Follow"
+
+  # Will return an array of users who follow the user instance
+  has_many :followers, through: :received_follows, source: :follower
 end
