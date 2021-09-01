@@ -22,11 +22,10 @@
                     <strong><%= user.name %></strong>
                     <small>@<%= user.username %></small>
                   </p>
-                  <% if user_signed_in? && user != current_user %>
-                    <p class="button is-info" style="color: white;">
-                    <%# if followed button - unfollow, else follow %>
-                      <%= link_to 'Follow', class: "button is-info" %>
-                    </p>
+                  <% if current_user.following.include?(user) %>
+                    <%= render 'unfollow' %>
+                  <% else %>
+                    <%= render 'follow' %>
                   <% end %>
                 </div>
               </div>
@@ -37,19 +36,19 @@
               <div class="level-item has-centered-text">
                 <div>
                   <p class="heading">Tweeets</p>
-                  <p class="title is-6>"><%= user.tweeets.count %></p>
+                  <p class="title is-6"><%= user.tweeets.count %></p>
                 </div>
               </div>
               <div class="level-item has-centered-text">
                 <div>
                   <p class="heading">Following</p>
-                  <p class="title is-6>">123</p>
+                  <p class="title is-6"><%= user.following.count %></p>
                 </div>
               </div>
               <div class="level-item has-centered-text">
                 <div>
                   <p class="heading">Followers</p>
-                  <p class="title is-6>">456K</p>
+                  <p class="title is-6"><%= user.followers.count %></p>
                 </div>
               </div>
             </div>
