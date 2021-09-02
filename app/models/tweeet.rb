@@ -1,4 +1,4 @@
 class Tweeet < ApplicationRecord
   belongs_to :user
-  has_many_attached :image
+  mount_uploader :image, ImageUploader
 end

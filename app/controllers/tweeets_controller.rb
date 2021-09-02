@@ -7,6 +7,7 @@ class TweeetsController < ApplicationController
     @tweeets = Tweeet.all.order("created_at DESC")
     @tweeet = Tweeet.new
     @users = User.all
+    image = @tweeet.image
   end
 
   # GET /tweeets/1 or /tweeets/1.json
@@ -67,6 +68,6 @@ class TweeetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tweeet_params
-      params.require(:tweeet).permit(:tweeet)
+      params.require(:tweeet).permit(:tweeet, :image)
     end
 end

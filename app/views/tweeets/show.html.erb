@@ -5,7 +5,7 @@
         <h1 class="title">Tweeet:</h1>
         <p>
           <%= @tweeet.tweeet %>
-          <%= image_tag(@tweeet.image) if @tweeet.image.attached? %>
+          <%= image_tag(@tweeet.image) if @tweeet.image? %>
         </p><br>
         <%= link_to 'Edit', edit_tweeet_path(@tweeet), class: "button is-info" %>
         <%= link_to 'Back', tweeets_path, class: "button is-info" %>

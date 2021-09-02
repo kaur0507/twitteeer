@@ -30,8 +30,6 @@
                           <h5><%= button_to "Follow", follow_user_path, method: "POST", class: "button is-info" %></h5>
                       <% end %>
                     <% end %>
-                    <%= link_to 'Followers', user_followers_path(user) %>
-                    <%= link_to 'Following', user_followees_path(user) %>
                   </section>
                 </div>
               </div>
@@ -83,7 +81,7 @@
                     <p><strong><%= tweeet.user.name %></strong></p>
                     <p><small>@<%= tweeet.user.username %></small></p>
                     <p><%= tweeet.tweeet %></p>
-                    <p><%= image_tag(tweeet.image) if tweeet.image.attached? %></p>
+                    <p><%= image_tag(tweeet.image) if tweeet.image? %></p>
                   </div>
 
                   <% if user_signed_in? && current_user.username == tweeet.user.username %>
