@@ -22,11 +22,17 @@
                     <strong><%= user.name %></strong>
                     <small>@<%= user.username %></small>
                   </p>
-                  <% if current_user.following.include?(user) %>
-                    <%= render 'unfollow' %>
-                  <% else %>
-                    <%= render 'follow' %>
-                  <% end %>
+                  <section id="all-links">
+                    <% if user_signed_in? && user.id != current_user.id %>
+                      <% if current_user.followees.include?(user) %>
+                          <h5><%= button_to "Unfollow", unfollow_user_path, method: "POST", class: "button is-info" %></h5>
+                      <% else %>
+                          <h5><%= button_to "Follow", follow_user_path, method: "POST", class: "button is-info" %></h5>
+                      <% end %>
+                    <% end %>
+                    <%= link_to 'Followers', user_followers_path(user) %>
+                    <%= link_to 'Following', user_followees_path(user) %>
+                  </section>
                 </div>
               </div>
             </article>
@@ -42,13 +48,13 @@
               <div class="level-item has-centered-text">
                 <div>
                   <p class="heading">Following</p>
-                  <p class="title is-6"><%= user.active_relationships.count %></p>
+                  <p class="title is-6"><%= user.followees.count %></p>
                 </div>
               </div>
               <div class="level-item has-centered-text">
                 <div>
                   <p class="heading">Followers</p>
-                  <p class="title is-6"><%= user.passive_relationships.count %></p>
+                  <p class="title is-6"><%= user.followers.count %></p>
                 </div>
               </div>
             </div>
