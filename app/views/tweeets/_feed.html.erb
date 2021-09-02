@@ -41,6 +41,7 @@
               <p><small>@<%= tweeet.user.username %></small></p>
               <p><%= tweeet.tweeet %></p>
               <p><%= image_tag(tweeet.image) if tweeet.image? %></p>
+              <p><%= distance_of_time_in_words(tweeet.updated_at, Time.now) %> ago</p>
             </div>
 
             <% if current_user.username == tweeet.user.username %>
