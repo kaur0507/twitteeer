@@ -23,7 +23,7 @@
   <% end%>
 
   <% @tweeets.each do |tweeet| %>
-    <% if current_user.followees.include?(tweeet.user)%>
+    <% if user_signed_in? && current_user.followees.include?(tweeet.user)%>
       <div class="box">
         <article class="media">
           <div class="media-left">
@@ -43,7 +43,7 @@
               <p><%= image_tag(tweeet.image) if tweeet.image? %></p>
             </div>
 
-            <% if user_signed_in? && current_user.username == tweeet.user.username %>
+            <% if current_user.username == tweeet.user.username %>
               <nav class="level">
                 <div class="level-left is-mobile">
                   <%= link_to tweeet, class: "level-item" do %>
@@ -64,6 +64,28 @@
                 </div>
               </nav>
             <% end %>
+          </div>
+        </article>
+      </div>
+    <% elsif !user_signed_in? %>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <p class="image is-64x64">
+              <% if tweeet.user.avatar.attached? %>
+              <%= image_tag tweeet.user.avatar %>
+            <% else %>
+              <%= gravatar_image_tag(tweeet.user.email, size: 64, alt: tweeet.user.name) %>
+            <% end %>
+            </p>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p><strong><%= tweeet.user.name %></strong></p>
+              <p><small>@<%= tweeet.user.username %></small></p>
+              <p><%= tweeet.tweeet %></p>
+              <p><%= image_tag(tweeet.image) if tweeet.image? %></p>
+            </div>
           </div>
         </article>
       </div>
