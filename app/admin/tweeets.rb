@@ -5,7 +5,7 @@ ActiveAdmin.register Tweeet do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :tweeet, :user_id, :image
+  permit_params :tweeet, :user_id, :image
   #
   # or
   #

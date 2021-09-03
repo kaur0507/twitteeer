@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :categories
+  resources :categories, only: [:show, :index]
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :follows

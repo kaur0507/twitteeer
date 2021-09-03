@@ -2,7 +2,10 @@
   <div class="container">
     <div class="columns">
       <% if user_signed_in? %>
-        <%= render 'profile' %>
+        <div class="column is-one-quarter">
+          <%= render 'profile' %>
+          <%= render 'trends' %>
+        </div>
       <% else%>
         <%= render 'trends' %>
       <% end %>

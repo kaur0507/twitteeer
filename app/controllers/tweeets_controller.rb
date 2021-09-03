@@ -8,6 +8,7 @@ class TweeetsController < ApplicationController
     @tweeet = Tweeet.new
     @users = User.all
     image = @tweeet.image
+    @categories = Category.all
   end
 
   # GET /tweeets/1 or /tweeets/1.json
@@ -70,4 +71,5 @@ class TweeetsController < ApplicationController
     def tweeet_params
       params.require(:tweeet).permit(:tweeet, :image, :category_id)
     end
+
 end
