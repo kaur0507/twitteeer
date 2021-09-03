@@ -23,7 +23,7 @@
   <% end%>
 
   <% @tweeets.each do |tweeet| %>
-    <% if user_signed_in? && current_user.followees.include?(tweeet.user)%>
+    <% if user_signed_in? && (current_user.followees.include?(tweeet.user) || current_user == tweeet.user) %>
       <div class="box">
         <article class="media">
           <div class="media-left">
@@ -39,6 +39,7 @@
             <div class="content">
               <p><strong><%= tweeet.user.name %></strong></p>
               <p><small>@<%= tweeet.user.username %></small></p>
+              <p><strong>Category: </strong><%= tweeet.category.name %></p>
               <p><%= tweeet.tweeet %></p>
               <p><%= image_tag(tweeet.image) if tweeet.image? %></p>
               <p><%= distance_of_time_in_words(tweeet.updated_at, Time.now) %> ago</p>

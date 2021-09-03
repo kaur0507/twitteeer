@@ -64,7 +64,7 @@
         <% if @tweeets.empty? %>
           <h1 style="text-align: center; padding-top: 23px;"><strong>No Tweeets yet</strong></h1>
         <% else %>
-          <% @tweeets.each do |tweeet| %>
+          <% @tweeets.reverse.each do |tweeet| %>
             <div class="box">
               <article class="media">
                 <div class="media-left">
