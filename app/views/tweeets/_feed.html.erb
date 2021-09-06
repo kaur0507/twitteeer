@@ -75,10 +75,10 @@
           <div class="media-left">
             <p class="image is-64x64">
               <% if tweeet.user.avatar.attached? %>
-              <%= image_tag tweeet.user.avatar %>
-            <% else %>
-              <%= gravatar_image_tag(tweeet.user.email, size: 64, alt: tweeet.user.name) %>
-            <% end %>
+                <%= image_tag tweeet.user.avatar %>
+              <% else %>
+                <%= gravatar_image_tag(tweeet.user.email, size: 64, alt: tweeet.user.name) %>
+              <% end %>
             </p>
           </div>
           <div class="media-content">
@@ -87,6 +87,7 @@
               <p><small>@<%= tweeet.user.username %></small></p>
               <p><%= tweeet.tweeet %></p>
               <p><%= image_tag(tweeet.image) if tweeet.image? %></p>
+              <p><%= distance_of_time_in_words(tweeet.updated_at, Time.now) %> ago</p>
             </div>
           </div>
         </article>

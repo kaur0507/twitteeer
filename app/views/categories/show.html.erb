@@ -1,1 +1,60 @@
-<%# here will be tweets with specific category - when clicked %>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-half">
+        <% category = Category.find(@category_id) %>
+        <h1 class="panel-heading"><strong><%= category.name %> tweeets</strong></h1>
+        <% if @tweeets.empty? %>
+          <h1 style="text-align: center; padding-top: 23px;"><strong>No Tweeets yet</strong></h1>
+        <% else %>
+          <% @tweeets.reverse.each do |tweeet| %>
+            <div class="box">
+              <article class="media">
+                <div class="media-left">
+                  <p class="image is-64x64">
+                    <% if tweeet.user.avatar.attached? %>
+                    <%= image_tag tweeet.user.avatar %>
+                  <% else %>
+                    <%= gravatar_image_tag(tweeet.user.email, size: 64, alt: tweeet.user.name) %>
+                  <% end %>
+                  </p>
+                </div>
+                <div class="media-content">
+                  <div class="content">
+                    <p><strong><%= tweeet.user.name %></strong></p>
+                    <p><small>@<%= tweeet.user.username %></small></p>
+                    <p><%= tweeet.tweeet %></p>
+                    <p><%= image_tag(tweeet.image) if tweeet.image? %></p>
+                    <p><%= distance_of_time_in_words(tweeet.updated_at, Time.now) %> ago</p>
+                  </div>
+
+                  <% if user_signed_in? && current_user.username == tweeet.user.username %>
+                    <nav class="level">
+                      <div class="level-left is-mobile">
+                        <%= link_to tweeet, class: "level-item" do %>
+                          <span class="icon">
+                            <i class="fa fa-link" aria-hidden="true"></i>
+                          </span>
+                        <% end %>
+                        <%= link_to edit_tweeet_path(tweeet), class: "level-item" do %>
+                          <span class="icon">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                          </span>
+                        <% end %>
+                        <%= link_to tweeet, method: :delete, data: { confirm: "Are you sure you want to delete this tweeet?"} do %>
+                          <span class="icon">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                          </span>
+                        <% end %>
+                      </div>
+                    </nav>
+                  <% end %>
+                </div>
+              </article>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

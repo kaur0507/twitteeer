@@ -40,6 +40,9 @@
             <p class="control">
               <%= link_to 'New Tweeet', root_path, class: "button is-info in-inverted" %>
             </p>
+            <p class="control">
+              <%= link_to 'Categories', categories_path, class: "button is-info in-inverted" %>
+            </p>
             <% if user_signed_in? %>
               <p class="control">
                 <%= link_to current_user.name, user_path(current_user.id), class: "button is-info" %>
