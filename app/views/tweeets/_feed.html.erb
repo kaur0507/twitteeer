@@ -85,6 +85,7 @@
             <div class="content">
               <p><strong><%= tweeet.user.name %></strong></p>
               <p><small>@<%= tweeet.user.username %></small></p>
+              <p><strong>Category: </strong><%= tweeet.category.name %></p>
               <p><%= tweeet.tweeet %></p>
               <p><%= image_tag(tweeet.image) if tweeet.image? %></p>
               <p><%= distance_of_time_in_words(tweeet.updated_at, Time.now) %> ago</p>

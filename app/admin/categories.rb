@@ -5,6 +5,14 @@ ActiveAdmin.register Category do
   # Uncomment all parameters which should be permitted for assignment
   #
   permit_params :name
+  controller do
+    def destroy
+      category = Category.find(params[:id])
+      category.tweeets.each { |tweeet| tweeet.destroy }
+      category.destroy
+      redirect_to admin_categories_path
+    end
+  end
   #
   # or
   #
