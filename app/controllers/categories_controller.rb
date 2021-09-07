@@ -5,7 +5,7 @@ class CategoriesController < InheritedResources::Base
     @tweeets = category.tweeets
     @category_id = category.id
   end
-
+  
   private
 
     def category_params

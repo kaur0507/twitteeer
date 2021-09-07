@@ -2,13 +2,13 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-half">
-        <h1 class="title">Tweeet:</h1>
-        <p>
-          <%= @tweeet.tweeet %>
-          <%= image_tag(@tweeet.image) if @tweeet.image? %>
-        </p><br>
-        <%= link_to 'Edit', edit_tweeet_path(@tweeet), class: "button is-info" %>
-        <%= link_to 'Back', tweeets_path, class: "button is-info" %>
+        <h1 class="title"><%= t '.title' %></h1>
+        <h1><strong><%= t '.category' %></strong><%= @tweeet.category.name%></h1>
+        <p><%= @tweeet.tweeet %></p>
+        <p><%= image_tag(@tweeet.image) if @tweeet.image? %></p>
+        <br>
+        <%= link_to t('.edit'), edit_tweeet_path(@tweeet), class: "button is-info" %>
+        <%= link_to t('.back'), tweeets_path, class: "button is-info" %>
       </div>
     </div>
   </div>

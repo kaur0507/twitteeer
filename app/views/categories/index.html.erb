@@ -1,6 +1,6 @@
 <div class="column">
   <nav class="panel"> 
-    <p class="panel-heading">Categories:</p>
+    <p class="panel-heading"><%= t '.title' %></p>
     <% @categories.each do |category| %>
       <p class="panel-block"><%= link_to category.name, category_path(category.id) %></p>
     <% end %>

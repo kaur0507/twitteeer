@@ -65,6 +65,7 @@ gem 'carrierwave', '~> 0.11.2'
 gem 'rmagick', '~> 4.2', '>= 4.2.2'
 gem 'mimemagic', '~> 0.3.0'
 gem 'paperclip', '~> 6.1'
+gem 'rails-i18n', '~> 6.0.0'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

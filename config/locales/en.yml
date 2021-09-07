@@ -30,4 +30,41 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  categories:
+    index:
+      title: "Categories"
+  registrations:
+    show:
+      title: "Profile"
+      tweeets_count: "Tweeets"
+      following_count: "Following"
+      followers_count: "Followers"
+  layouts:
+    application:
+      title: "Twitteeer"
+      twitter: "Twitteeer"
+      new_tweeet: "New Tweeet"
+      categories: "Categories"
+      edit_profile: "Edit profile"
+      log_out: "Log out"
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      
+
+  tweeets:
+    profile:
+      title: "Profile"
+      tweeets_count: "Tweeets"
+      following_count: "Following"
+      followers_count: "Followers"
+    trends:
+      title: "Categories"
+    who-to-follow:
+      title: "Who to follow"
+    edit:
+      title: "Edit your Tweeet"
+    show:
+      title: "Tweeet:"
+      category: "Category: "
+      edit: "Edit"
+      back: "Back"

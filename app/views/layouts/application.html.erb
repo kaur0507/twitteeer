@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Twitter</title>
+    <title><%= t '.title' %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -25,7 +25,7 @@
     <nav class="navbar is-info">
       <div class="navbar-brand">
         <%= link_to root_path, class: "navbar-item" do %>
-          <h1 class="title is-5">Twitteeer</h1>
+          <h1 class="title is-5"><%= t '.twitter' %></h1>
         <% end %>
         <div class="navbar-burger burger" data-target="navbarExample">
           <span></span>
@@ -38,27 +38,27 @@
         <div class="navbar-end">
           <div class="field is-grouped">
             <p class="control">
-              <%= link_to 'New Tweeet', root_path, class: "button is-info in-inverted" %>
+              <%= link_to t('.new_tweeet'), root_path, class: "button is-info in-inverted" %>
             </p>
             <p class="control">
-              <%= link_to 'Categories', categories_path, class: "button is-info in-inverted" %>
+              <%= link_to t('.categories'), categories_path, class: "button is-info in-inverted" %>
             </p>
             <% if user_signed_in? %>
               <p class="control">
                 <%= link_to current_user.name, user_path(current_user.id), class: "button is-info" %>
               </p>
               <p class="control">
-                <%= link_to 'Edit profile', edit_user_registration_path, class: "button is-info" %>
+                <%= link_to t('.edit_profile'), edit_user_registration_path, class: "button is-info" %>
               </p>
               <p>
-                <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"button is-info" %>
+                <%= link_to t('.log_out'), destroy_user_session_path, method: :delete, class:"button is-info" %>
               </p>
             <% else %>
               <p class="control">
-                <%= link_to 'Sign In', new_user_session_path, class: "button is-info" %>
+                <%= link_to t('.sign_in'), new_user_session_path, class: "button is-info" %>
               </p>
               <p class="control">
-                <%= link_to 'Sign Up', new_user_registration_path, class: "button is-info" %>
+                <%= link_to t('.sign_up'), new_user_registration_path, class: "button is-info" %>
               </p>
             <% end %>
             </div>

@@ -1,5 +1,5 @@
 <nav class="panel"> 
-  <p class="panel-heading">Profile</p>
+  <p class="panel-heading"><%= t '.title' %></p>
   <div class="panel-block">
     <article class="media">
       <div class="media-left">
@@ -25,19 +25,19 @@
     <div class="level is-mobile">
       <div class="level-item has-centered-text">
         <div>
-          <p class="heading">Tweeets</p>
+          <p class="heading"><%= t '.tweeets_count' %></p>
           <p class="title is-6"><%= current_user.tweeets.count %></p>
         </div>
       </div>
       <div class="level-item has-centered-text">
         <div>
-          <p class="heading">Following</p>
+          <p class="heading"><%= t '.following_count' %></p>
           <p class="title is-6"><%= current_user.followees.count %></p>
         </div>
       </div>
       <div class="level-item has-centered-text">
         <div>
-          <p class="heading">Followers</p>
+          <p class="heading"><%= t '.followers_count' %></p>
           <p class="title is-6"><%= current_user.followers.count %></p>
         </div>
       </div>

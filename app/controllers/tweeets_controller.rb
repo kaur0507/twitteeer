@@ -13,6 +13,7 @@ class TweeetsController < ApplicationController
 
   # GET /tweeets/1 or /tweeets/1.json
   def show
+    @categories = Category.all
   end
 
   # GET /tweeets/new
