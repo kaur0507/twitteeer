@@ -31,7 +31,7 @@ class TweeetsController < ApplicationController
 
     respond_to do |format|
       if @tweeet.save
-        format.html { redirect_to root_path, notice: "Tweeet was successfully created." }
+        format.html { redirect_to root_path, notice: t('creation') }
         format.json { render :show, status: :created, location: @tweeet }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +44,7 @@ class TweeetsController < ApplicationController
   def update
     respond_to do |format|
       if @tweeet.update(tweeet_params)
-        format.html { redirect_to @tweeet, notice: "Tweeet was successfully updated." }
+        format.html { redirect_to @tweeet, notice: t('update') }
         format.json { render :show, status: :ok, location: @tweeet }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class TweeetsController < ApplicationController
   def destroy
     @tweeet.destroy
     respond_to do |format|
-      format.html { redirect_to tweeets_url, notice: "Tweeet was successfully destroyed." }
+      format.html { redirect_to tweeets_url, notice: t('destroy') }
       format.json { head :no_content }
     end
   end

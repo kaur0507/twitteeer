@@ -3,7 +3,7 @@
     <div class="columns">
       <div class="column is-one-quarter">
         <nav class="panel"> 
-          <p class="panel-heading">Profile</p>
+          <p class="panel-heading"><%= t '.title' %></p>
           <div class="panel-block">
             <article class="media">
               <div class="media-left">
@@ -25,9 +25,9 @@
                   <section id="all-links">
                     <% if user_signed_in? && user.id != current_user.id %>
                       <% if current_user.followees.include?(user) %>
-                          <h5><%= button_to "Unfollow", unfollow_user_path, method: "POST", class: "button is-info" %></h5>
+                          <h5><%= button_to t('.unfollow'), unfollow_user_path, method: "POST", class: "button is-info" %></h5>
                       <% else %>
-                          <h5><%= button_to "Follow", follow_user_path, method: "POST", class: "button is-info" %></h5>
+                          <h5><%= button_to t('.follow'), follow_user_path, method: "POST", class: "button is-info" %></h5>
                       <% end %>
                     <% end %>
                   </section>
@@ -39,19 +39,19 @@
             <div class="level is-mobile">
               <div class="level-item has-centered-text">
                 <div>
-                  <p class="heading">Tweeets</p>
+                  <p class="heading"><%= t '.tweeets_count' %></p>
                   <p class="title is-6"><%= user.tweeets.count %></p>
                 </div>
               </div>
               <div class="level-item has-centered-text">
                 <div>
-                  <p class="heading">Following</p>
+                  <p class="heading"><%= t '.following_count' %></p>
                   <p class="title is-6"><%= user.followees.count %></p>
                 </div>
               </div>
               <div class="level-item has-centered-text">
                 <div>
-                  <p class="heading">Followers</p>
+                  <p class="heading"><%= t '.followers_count' %></p>
                   <p class="title is-6"><%= user.followers.count %></p>
                 </div>
               </div>
@@ -62,7 +62,7 @@
 
       <div class="column is-half">
         <% if @tweeets.empty? %>
-          <h1 style="text-align: center; padding-top: 23px;"><strong>No Tweeets yet</strong></h1>
+          <h1 style="text-align: center; padding-top: 23px;"><strong><%= t '.empty_feed' %></strong></h1>
         <% else %>
           <% @tweeets.reverse.each do |tweeet| %>
             <div class="box">
@@ -80,10 +80,11 @@
                   <div class="content">
                     <p><strong><%= tweeet.user.name %></strong></p>
                     <p><small>@<%= tweeet.user.username %></small></p>
-                    <p><strong>Category: </strong><%= tweeet.category.name %></p>
+                    <p><strong><%= t '.category' %></strong><%= tweeet.category.name %></p>
                     <p><%= tweeet.tweeet %></p>
                     <p><%= image_tag(tweeet.image) if tweeet.image? %></p>
-                    <p><%= distance_of_time_in_words(tweeet.updated_at, Time.now) %> ago</p>
+                    <% added = distance_of_time_in_words(tweeet.updated_at, Time.now) %>
+                    <p><%= t('.added_ago', added: added) %></p>
                   </div>
 
                   <% if user_signed_in? && current_user.username == tweeet.user.username %>

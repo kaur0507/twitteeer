@@ -14,8 +14,8 @@ module Twitter
     # Include the authenticity token in remote forms.
     config.action_view.embed_authenticity_token_in_remote_forms = true
 
-    config.i18n.available_locales = [:en, :it, :de]
-    config.i18n.default_locale = :en # default by Rails is english
+    config.i18n.available_locales = [:en, :pl]
+    config.i18n.default_locale = :pl # default setting by Rails is english
 
     # Configuration for the application, engines, and railties goes here.
     #
