@@ -27,6 +27,11 @@
         <%= link_to root_path, class: "navbar-item" do %>
           <h1 class="title is-5"><%= t '.twitter' %></h1>
         <% end %>
+        <% if I18n.locale == I18n.default_locale %>
+          <h1 class="title is-5" style=" margin: 15px;"><%= link_to "ENG", { :locale=>'en' } %></h1>
+        <% else %>
+          <h1 class="title is-5" style=" margin: 15px;"><%= link_to "POL", { :locale=>'pl' } %></h1>
+        <%end%>
         <div class="navbar-burger burger" data-target="navbarExample">
           <span></span>
           <span></span>

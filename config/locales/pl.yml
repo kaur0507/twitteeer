@@ -76,7 +76,7 @@ pl:
       
       confirmation: "Czy na pewno chcesz usunąć tego Tweeet'a?"
     form:
-      label: "Zatweeetuj to"
+      label: "Zatweeetuj o tym"
       placeholder: "Utwórz nowego Tweeet'a..."
       button: "Utwórz Tweeet'a"
     profile:
