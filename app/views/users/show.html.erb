@@ -88,7 +88,7 @@
                       <% end %>
                     </p>
                     <p><%= tweeet.tweeet %></p>
-                    <p><%= image_tag(tweeet.image) if tweeet.image? %></p>
+                    <p><%= image_tag(tweeet.image) if tweeet.image.present? %></p>
                     <% added = distance_of_time_in_words(tweeet.updated_at, Time.now) %>
                     <p><%= t('.added_ago', added: added) %></p>
                   </div>

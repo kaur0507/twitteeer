@@ -11,7 +11,7 @@
           <% end %>
         </h1>
         <p><%= @tweeet.tweeet %></p>
-        <p><%= image_tag(@tweeet.image) if @tweeet.image? %></p>
+        <p><%= image_tag(@tweeet.image) if @tweeet.image.present? %></p>
         <br>
         <%= link_to t('.edit'), edit_tweeet_path(@tweeet), class: "button is-info" %>
         <%= link_to t('.back'), tweeets_path, class: "button is-info" %>

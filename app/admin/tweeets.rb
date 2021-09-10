@@ -10,7 +10,7 @@ ActiveAdmin.register Tweeet do
   # or
   #
   # permit_params do
-  #   permitted = [:tweeet, :user_id, :image]
+  #   permitted = [:tweeet, :user_id]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end

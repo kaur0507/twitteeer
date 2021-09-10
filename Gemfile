@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -36,7 +36,8 @@ gem 'activeadmin', '~> 2.9'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry'
 end
 
 group :development do
@@ -61,10 +62,6 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'carrierwave', '~> 0.11.2'
-gem 'rmagick', '~> 4.2', '>= 4.2.2'
-gem 'mimemagic', '~> 0.3.0'
-gem 'paperclip', '~> 6.1'
 gem 'rails-i18n', '~> 6.0.0'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
