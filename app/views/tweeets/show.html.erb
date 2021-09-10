@@ -3,7 +3,13 @@
     <div class="columns is-centered">
       <div class="column is-half">
         <h1 class="title"><%= t '.title' %></h1>
-        <h1><strong><%= t '.category' %></strong><%= @tweeet.category.name%></h1>
+        <h1><strong><%= t '.category' %></strong>
+          <% if I18n.locale == I18n.default_locale %>
+            <%= @tweeet.category.name %>
+          <% else %>
+            <%= @tweeet.category.polish_name %>
+          <% end %>
+        </h1>
         <p><%= @tweeet.tweeet %></p>
         <p><%= image_tag(@tweeet.image) if @tweeet.image? %></p>
         <br>

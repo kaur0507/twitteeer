@@ -2,7 +2,11 @@
   <nav class="panel"> 
     <p class="panel-heading"><%= t '.title' %></p>
     <% @categories.each do |category| %>
-      <p class="panel-block"><%= link_to category.name, category_path(category.id) %></p>
+      <% if I18n.locale == I18n.default_locale %>
+        <p class="panel-block"><%= link_to category.name, category_path(category.id) %></p>
+      <% else %>
+        <p class="panel-block"><%= link_to category.polish_name, category_path(category.id) %></p>
+      <% end %>
     <% end %>
   </nav>
 </div>

@@ -6,7 +6,7 @@ pl:
     index:
       title: "Kategorie"
     show:
-      specified: " Tweeety"
+      specified: "Tweeety o kategorii "
       none: "Brak Tweeetów"
       category: "Kategoria: "
       added_ago: "%{added} temu"

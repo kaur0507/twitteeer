@@ -3,7 +3,13 @@
     <div class="columns">
       <div class="column is-half">
         <% category = Category.find(@category_id) %>
-        <h1 class="panel-heading"><strong><%= category.name %><%= t '.specified' %></strong></h1>
+        <h1 class="panel-heading"><strong><%= t '.specified' %></strong>
+          <% if I18n.locale == I18n.default_locale %>
+            <%= category.name %>
+          <% else %>
+            <%= category.polish_name %>
+          <% end %>
+        </h1>
         <% if @tweeets.empty? %>
           <h1 style="text-align: center; padding-top: 23px;"><strong><%= t '.none' %></strong></h1>
         <% else %>
@@ -23,7 +29,13 @@
                   <div class="content">
                     <p><strong><%= tweeet.user.name %></strong></p>
                     <p><small>@<%= tweeet.user.username %></small></p>
-                    <p><strong><%= t '.category' %></strong><%= tweeet.category.name %></p>
+                    <p><strong><%= t '.category' %></strong>
+                      <% if I18n.locale == I18n.default_locale %>
+                        <%= tweeet.category.name %>
+                      <% else %>
+                        <%= tweeet.category.polish_name %>
+                      <% end %>
+                    </p>
                     <p><%= tweeet.tweeet %></p>
                     <p><%= image_tag(tweeet.image) if tweeet.image? %></p>
                     <% added = distance_of_time_in_words(tweeet.updated_at, Time.now) %>

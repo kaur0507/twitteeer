@@ -4,7 +4,7 @@ ActiveAdmin.register Category do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name
+  permit_params :name, :polish_name
   controller do
     def destroy
       category = Category.find(params[:id])
@@ -17,7 +17,7 @@ ActiveAdmin.register Category do
   # or
   #
   # permit_params do
-  #   permitted = [:name]
+  #   permitted = [:name_en, :name_pl]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end

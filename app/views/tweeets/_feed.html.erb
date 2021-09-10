@@ -39,7 +39,13 @@
             <div class="content">
               <p><strong><%= tweeet.user.name %></strong></p>
               <p><small>@<%= tweeet.user.username %></small></p>
-              <p><strong><%= t '.category' %></strong><%= tweeet.category.name %></p>
+              <p><strong><%= t '.category' %></strong>
+                <% if I18n.locale == I18n.default_locale %>
+                  <%= tweeet.category.name %>
+                <% else %>
+                  <%= tweeet.category.polish_name %>
+                <% end %>
+              </p>
               <p><%= tweeet.tweeet %></p>
               <p><%= image_tag(tweeet.image) if tweeet.image? %></p>
               <% added = distance_of_time_in_words(tweeet.updated_at, Time.now) %>
@@ -86,7 +92,13 @@
             <div class="content">
               <p><strong><%= tweeet.user.name %></strong></p>
               <p><small>@<%= tweeet.user.username %></small></p>
-              <p><strong><%= t '.category' %></strong><%= tweeet.category.name %></p>
+              <p><strong><%= t '.category' %></strong>
+                <% if I18n.locale == I18n.default_locale %>
+                  <%= tweeet.category.name %>
+                <% else %>
+                  <%= tweeet.category.polish_name %>
+                <% end %>
+              </p>
               <p><%= tweeet.tweeet %></p>
               <p><%= image_tag(tweeet.image) if tweeet.image? %></p>
               <% added = distance_of_time_in_words(tweeet.updated_at, Time.now) %>
